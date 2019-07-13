@@ -1,4 +1,4 @@
-class ManyClothes
+class Wardrode
   attr_reader :clothes
 
   def initialize(clothes)

@@ -1,4 +1,4 @@
-class Wear
+class Garment
   attr_reader :name, :type, :temperature_range, :valid_fail
 
   INDEX_NAME = 0
@@ -14,7 +14,7 @@ class Wear
   def return_correct_range(temperature_string)
     temperature_string = temperature_string.gsub(/\(|\)/, '')
     temperature_array = temperature_string.split(/, /)
-    temperature_array = temperature_array.map!(&:to_i)
+    temperature_array = temperature_array.map(&:to_i)
     first_range = temperature_array[0]
     second_range = temperature_array[1]
 
@@ -23,7 +23,7 @@ class Wear
     (first_range..second_range)
   end
 
-  def abort?
+  def temperature_range_invalid?
     @valid_fail
   end
 

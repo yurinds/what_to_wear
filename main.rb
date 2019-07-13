@@ -1,5 +1,5 @@
-require_relative 'lib/wear'
-require_relative 'lib/many_clothes'
+require_relative 'lib/garment'
+require_relative 'lib/wardrode'
 
 current_path = File.dirname(__FILE__)
 
@@ -14,12 +14,12 @@ directory_files.each do |file_path|
 
   file_lines = File.readlines(full_path, chomp: true)
 
-  wear = Wear.new(file_lines)
+  garment = Garment.new(file_lines)
 
-  all_clothes << wear unless wear.abort?
+  all_clothes << garment unless garment.temperature_range_invalid?
 end
 
-clothes = ManyClothes.new(all_clothes)
+clothes = Wardrode.new(all_clothes)
 
 print 'Сколько градусов за окном? (можно с минусом) '
 temperature = STDIN.gets.to_i
