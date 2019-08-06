@@ -13,7 +13,9 @@
 
 Программа написана на Ruby.
 
-Для запуска склонируйте репозиторий и выполните комманду:
+Для запуска выполните в терминале:
 ```
+git clone https://github.com/yurinds/what_to_wear.git
+cd what_to_wear
 ruby main.rb
 ```
