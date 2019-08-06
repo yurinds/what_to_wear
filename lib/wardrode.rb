@@ -18,10 +18,6 @@ class Wardrode
     types_hash
   end
 
-  def temperature_ok?(wear, temperature)
-    wear.temperature_range.include?(temperature)
-  end
-
   def all_clothes_types
     types = []
     @clothes.each do |wear|
@@ -29,5 +25,11 @@ class Wardrode
     end
 
     types
+  end
+
+  private
+
+  def temperature_ok?(wear, temperature)
+    wear.temperature_range.include?(temperature)
   end
 end
