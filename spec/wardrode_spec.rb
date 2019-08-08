@@ -27,12 +27,18 @@ describe 'Wardrode' do
 
   describe '#clothes_for_temperature' do
     it 'displays clothes for a temperature of 20 degrees Celsius' do
-      right_answer = { 'Головной убор' => 'Кепка' }
-      expect(@wardrode.clothes_for_temperature(20)).to eq right_answer
+      # right_answer = { 'Головной убор' => 'Кепка' }
+      proper_clothes = @wardrode.clothes_for_temperature(20)
+      proper_wardrode = proper_clothes['Головной убор'][0]
+      expect(proper_wardrode.name).to eq 'Кепка'
     end
     it 'displays clothes for a temperature of 10 degrees Celsius' do
-      right_answer = { 'Верхняя одежда' => 'Весенняя куртка', 'Обувь' => 'Кроссовки' }
-      expect(@wardrode.clothes_for_temperature(10)).to eq right_answer
+      # right_answer = { 'Верхняя одежда' => 'Весенняя куртка', 'Обувь' => 'Кроссовки' }
+      proper_clothes = @wardrode.clothes_for_temperature(10)
+      proper_wardrode_type_1 = proper_clothes['Верхняя одежда'][0]
+      proper_wardrode_type_2 = proper_clothes['Обувь'][0]
+      proper_clothes_arr = [proper_wardrode_type_1.name, proper_wardrode_type_2.name]
+      expect(proper_clothes_arr.join(', ')).to eq 'Весенняя куртка, Кроссовки'
     end
   end
 end
